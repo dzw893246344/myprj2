@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>宫颈癌RNA-Seq数据库</title>
+	<link rel="stylesheet" href="../../static/css/style.css" type="text/css">
+    <style>
+        .logo{
+            text-decoration: none;
+            color: gray;
+            font-size: x-large;
+        }
+    </style>
+</head>
+<body>
+<script src="/gg_bd_temp_ad_720x90.js" type="text/javascript"></script>
+	<div id="background">
+		<div id="header">
+			<div>
+				<div>
+					<a href="index.html" class="logo"><h1 align="center">宫颈癌RNA-Seq数据库</h1></a>
+					<ul>
+						<li>
+							<a href="index.html" id="menu1">首页</a>
+						</li>
+						<li class="selected">
+							<a href="dbs.html" id="menu2">数据库</a>
+						</li>
+						<li>
+							<a href="partdt.html" id="menu3">样例分析</a>
+						</li>
+						<li>
+							<a href="alldt.html" id="menu4">全局分析</a>
+						</li>
+						<li>
+							<a href="contact.html" id="menu5">联系我们</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div id="body">
+			<div>
+				<div>
+					<div class="media">
+						<div>
+							<div>
+								<h3>基因表达</h3>
+								<form action="tools/searchgexp" method="post" >
+                                    进行少量查询（可输入几个样本或基因，之间用英文逗号隔开）<br>
+                                    请输入查询样本：<input type="text" name="run" size="55" required><br>
+                                    请输入查询基因：<input type="text" name="geneid" size="55" required><br>
+                                    <input type="submit" >
+                                </form>
+                                <button onclick="window.location.href='/down_runlist'">下载样本号</button>
+                                <button onclick="window.location.href='/down_genelist'">下载基因号</button>
+                                <form enctype="multipart/form-data" action="tools/searchgexp2" method="post" >
+                                    进行大量查询（可输入大量样本或基因，文件格式为txt，单个样本或基因占一行）<br>
+                                    请上传查询样本：<input type="file" name="runfile" id="avatar_file" required><br>
+                                    请上传查询基因：<input type="file" name="genefile" id="avatar_file" required><br>
+                                    <input type="submit" >
+                                </form>
+							</div>
+							<div>
+								<h3>查询示例</h3>
+								<ul>
+									<li>
+										<a href="#" class="figure"><img src="../../static/images/video1.jpg" alt=""></a>
+										<span><a href="#">This is just a place holder</a></span>
+									</li>
+									<li>
+										<a href="#" class="figure"><img src="../../static/images/video2.jpg" alt=""></a>
+										<span><a href="#">This is just a place holder</a></span>
+									</li>
+									<li>
+										<a href="#" class="figure"><img src="../../static/images/video3.jpg" alt=""></a>
+										<span><a href="#">This is just a place holder</a></span>
+									</li>
+									<li>
+										<a href="#" class="figure"><img src="../../static/images/video4.jpg" alt=""></a>
+										<span><a href="#">This is just a place holder</a></span>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="article">
+							<h3>this is just a place holder</h3>
+							<ul>
+								<li>
+									<a href="#" class="figure"><img src="../../static/images/media2.jpg" alt=""></a>
+									<p>
+										This website template has been collect from <a href="http://www.cssmoban.com/" title="模板之家">模板之家</a> for you, for free. You can replace all this text with your own text. You can remove any link to our website from this website template, you're free to use this website template.
+									</p>
+								</li>
+								<li>
+									<a href="#" class="figure"><img src="../../static/images/media3.jpg" alt=""></a>
+									<p>
+										If you're having problems editing this website template, then don't hesitate to ask for help on the Forum.
+									</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="footer">
+			<div>
+				<ul>
+					<li id="facebook">
+						<a href="#">facebook</a>
+					</li>
+					<li id="twitter">
+						<a href="#">twitter</a>
+					</li>
+					<li id="googleplus">
+						<a href="#">googleplus</a>
+					</li>
+				</ul>
+				<p>
+					@ copyright 2012. All rights reserved.&nbsp;<a href="http://js.itivy.com" title="网页素材" target="_blank">网页素材</a>
+				</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

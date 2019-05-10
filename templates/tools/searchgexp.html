@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    	<link rel="stylesheet" href="../../static/css/style.css" type="text/css">
+    <title>Title</title>
+    <style>
+        .result{
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+<table border="5" bgcolor="black" cellpadding="3" cellspacing="3" class="result" align="center">
+    <tr>
+        <td>Run</td>
+        {% for gene in geneid %}<td>{{ gene }}</td>{% endfor %}
+    </tr>
+    {% for run in runs %}
+    <tr>
+        {% for item in run %}
+            <td>{{ item }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
