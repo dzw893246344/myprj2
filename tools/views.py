@@ -2,7 +2,9 @@ from django.db.models import Manager
 from django.http import StreamingHttpResponse, HttpResponse
 from django.shortcuts import render, render_to_response
 import os,csv
-from tools.models import Gexpress
+from tools.models import Gexpress, Results
+
+
 # Create your views here.
 
 
@@ -26,22 +28,29 @@ def partdt(request):
     return render(request, 'tools/partdt.html')
 
 
+def icgcgene(request):
+    emseble=request.POST.get('gene')
+    url='https://dcc.icgc.org/genes/'+emseble
+    return (request, url)
+
+
 def searchgexp(request):
     gid=request.POST.get('geneid').split(',')
-    runs=[]
-    sqlquery = "select Run,"+request.POST.get('geneid')+" from rsdb.gexpress where Run in("
-    for r in request.POST.get('run').split(','):
+    item=['Gene','baseMean','log2FoldChange','lfcSE','pvalue','padj','symbol','entrez']
+    sqlquery = "select * from rsdb.results where Gene in("
+    for r in gid:
         sqlquery+="'"+r+"',"
     sqlquery = sqlquery.strip(',')+")"
-    for run in Gexpress.objects.raw(sqlquery):
-        one = [run.run]
-        for g in gid:
-            string = 'one.append(run.'+str(g).lower()+')'
+    genes=[]
+    for g in Results.objects.raw(sqlquery):
+        one = []
+        for ge in item:
+            string = 'one.append(g.' + str(ge).lower() + ')'
             exec(string)
-        runs.append(one)
+        genes.append(one)
     content={
-        'geneid': gid,
-        'runs': runs
+        'genes': genes,
+        'item': item
     }
     return render(request, 'tools/searchgexp.html', content)
 
@@ -66,13 +75,6 @@ def down_genelist(request):
 def searchgexp2(request):
     UP_DIR=os.path.join(BASE_DIR,"upload")
     if request.method == "POST":    # 请求方法为POST时，进行处理
-        myFile1 =request.FILES.get("runfile", None)    # 获取上传的文件，如果没有文件，则默认为None
-        if not myFile1:
-            return HttpResponse("no files for upload!")
-        destination = open(os.path.join(UP_DIR,myFile1.name),'wb+')    # 打开特定的文件进行二进制的写操作
-        for chunk in myFile1.chunks():      # 分块写入文件
-            destination.write(chunk)
-        destination.close()
         myFile2 = request.FILES.get("genefile", None)  # 获取上传的文件，如果没有文件，则默认为None
         if not myFile2:
             return HttpResponse("no files for upload!")
@@ -80,29 +82,23 @@ def searchgexp2(request):
         for chunk in myFile2.chunks():  # 分块写入文件
             destination.write(chunk)
         destination.close()
-        runs = []
         genes = []
-        rfile = open(os.path.join(UP_DIR, myFile1.name), 'r')
-        for r in rfile:
-            runs.append(r.strip('\n'))
         gfile = open(os.path.join(UP_DIR, myFile2.name), 'r')
+        sqlquery = "select * from rsdb.results where Gene in("
         for g in gfile:
-            genes.append(g.strip('\n'))
-        sqlquery = "select *" + " from rsdb.gexpress where Run in("
-        for r in runs:
-            sqlquery += "'" + r + "',"
+            g=g.strip()
+            sqlquery += "'" + g + "',"
         sqlquery = sqlquery.strip(',') + ")"
-        runs=[]
-        for run in Gexpress.objects.raw(sqlquery):
-            one = [run.run]
-            for g in genes:
-                string = 'one.append(run.' + str(g).lower() + ')'
+        item=['Gene','baseMean','log2FoldChange','lfcSE','pvalue','padj','symbol','entrez']
+        for gene in Results.objects.raw(sqlquery):
+            one = []
+            for g in item:
+                string = 'one.append(gene.' + str(g).lower() + ')'
                 exec(string)
-            runs.append(one)
-        genes.insert(0, "Run")
-        runs.insert(0, genes)
+            genes.append(one)
+        genes.insert(0, item)
         searchresult = csv.writer(open(os.path.join(BASE_DIR, "download/result.csv"),'w',newline=''))
-        searchresult.writerows(runs)
+        searchresult.writerows(genes)
         searchresult = open(os.path.join(BASE_DIR, "download/result.csv"),'r')
         response = HttpResponse(searchresult)
         response['Content-Disposition'] = 'attachment; filename=result.csv'

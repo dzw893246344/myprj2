@@ -32,6 +32,7 @@ urlpatterns = [
     path('dbs.html', views.dbs),
     path('alldt.html', views.alldt),
     path('partdt.html', views.partdt),
+    path('tools/icgcgene', views.icgcgene),
     path('tools/searchgexp', views.searchgexp),
     url(r'^index/static/(?P<path>.*)$', serve, {'document_root': os.path.join(BASE_DIR, "static")}),
     path('tools/searchgexp2', views.searchgexp2),

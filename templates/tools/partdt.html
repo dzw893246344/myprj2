@@ -28,10 +28,10 @@
 							<a href="dbs.html" id="menu2">数据库</a>
 						</li>
 						<li class="selected">
-							<a href="partdt.html" id="menu3">样例分析</a>
+							<a href="partdt.html" id="menu3">全局分析</a>
 						</li>
 						<li>
-							<a href="alldt.html" id="menu4">全局分析</a>
+							<a href="alldt.html" id="menu4">验证实验</a>
 						</li>
 						<li>
 							<a href="contact.html" id="menu5">联系我们</a>
@@ -43,51 +43,42 @@
 		<div id="body">
 			<div>
 				<div>
+                    <h3 style="color:yellow">对照组和实验组的差异分析过程如下方各图所示，流程参考如下链接：</h3>
+                    <a href="https://www.bioconductor.org/packages/devel/workflows/vignettes/rnaseqGene/inst/doc/rnaseqGene.html">https://www.bioconductor.org/packages/devel/workflows/vignettes/rnaseqGene/inst/doc/rnaseqGene.html</a>
 					<div class="games">
 						<div class="content">
-							<h3>best games</h3>
+							<h3 align="center">基因计数的转换</h3>
 							<ul>
 								<li>
-									<a href="#" class="figure"><img src="../../static/images/best-game1.jpg" alt=""></a> <span><a href="#">This is just a place holder</a></span>
-								</li>
-								<li>
-									<a href="#" class="figure"><img src="../../static/images/best-game2.jpg" alt=""></a> <span><a href="#">This is just a place holder</a></span>
+									<a href="#" class="figure"><img src="../../static/images/llv.png" alt="" width="450" ></a>
+                                    <p style="color: yellow;font-size:large">对基因进行计数后，对计数x进行3种转换：转换为log2（x+1），方差稳定转换VST，和正规化的对数转换rlog。画出三种转换效果的散点图（注：选取41组数据绘图。）我们可以看到低计数基因(左下角)在普通对数尺度上似乎是过度变化的，而VST和rlog压缩了低计数基因的差异。</p>
 								</li>
 							</ul>
 						</div>
-						<div class="aside">
-							<h3>other games</h3>
+                        <div class="content">
+							<h3 align="center">样本欧式距离</h3>
 							<ul>
 								<li>
-									<a href="#" class="figure"><img src="../../static/images/game1.jpg" alt=""></a>
-									<span><a href="#">This is just a place holder</a></span>
-								</li>
-								<li>
-									<a href="#" class="figure"><img src="../../static/images/game2.jpg" alt=""></a>
-									<span><a href="#">This is just a place holder</a></span>
-								</li>
-								<li>
-									<a href="#" class="figure"><img src="../../static/images/game3.jpg" alt=""></a>
-									<span><a href="#">This is just a place holder</a></span>
-								</li>
-								<li>
-									<a href="#" class="figure"><img src="../../static/images/game4.jpg" alt=""></a>
-									<span><a href="#">This is just a place holder</a></span>
-								</li>
-								<li>
-									<a href="#" class="figure"><img src="../../static/images/game5.jpg" alt=""></a>
-									<span><a href="#">This is just a place holder</a></span>
-								</li>
-								<li>
-									<a href="#" class="figure"><img src="../../static/images/game6.jpg" alt=""></a>
-									<span><a href="#">This is just a place holder</a></span>
+                                    <a href="#" class="figure"><img src="../../static/images/dheat.png" alt="" width="450"></a>
+                                    <p style="color: yellow;font-size:large">从两图中都可以看出对照组和实验组组内的相关性明显高于组间的相关性，说明同类样本间相关性较好。但使用VST数据做的检验差异较原始计数数据明显。</p>
 								</li>
 							</ul>
 						</div>
-						<div class="article">
-							<p>
-								This website template has been collect from <a href="http://www.cssmoban.com/" title="模板之家">模板之家</a> for you, for free. You can replace all this text with your own text. You can remove any link to our website from this website template, you're free to use this website template without linking back to us. If you're having problems editing this website template, then don't hesitate to ask for help on the Forum.
-							</p>
+                        <div class="content">
+							<h3 align="center">样本泊松距离</h3>
+							<ul>
+								<li>
+									<a href="#" class="figure"><img src="../../static/images/KEGG.png" alt="" width="450" height="450"></a> <span><a href="#">This is just a place holder</a></span>
+								</li>
+							</ul>
+						</div>
+                        <div class="content">
+							<h3 align="center">主成分分析</h3>
+							<ul>
+								<li>
+									<a href="#" class="figure"><img src="../../static/images/KEGG.png" alt="" width="450" height="450"></a> <span><a href="#">This is just a place holder</a></span>
+								</li>
+							</ul>
 						</div>
 					</div>
 				</div>

@@ -11,14 +11,14 @@
     </style>
 </head>
 <body>
+
 <table border="5" bgcolor="black" cellpadding="3" cellspacing="3" class="result" align="center">
     <tr>
-        <td>Run</td>
-        {% for gene in geneid %}<td>{{ gene }}</td>{% endfor %}
+        {% for i in item %}<td>{{ i }}</td>{% endfor %}
     </tr>
-    {% for run in runs %}
+    {% for gene in genes %}
     <tr>
-        {% for item in run %}
+        {% for item in gene %}
             <td>{{ item }}</td>
         {% endfor %}
     </tr>

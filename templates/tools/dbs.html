@@ -28,10 +28,10 @@
 							<a href="dbs.html" id="menu2">数据库</a>
 						</li>
 						<li>
-							<a href="partdt.html" id="menu3">样例分析</a>
+							<a href="partdt.html" id="menu3">全局分析</a>
 						</li>
 						<li>
-							<a href="alldt.html" id="menu4">全局分析</a>
+							<a href="alldt.html" id="menu4">验证实验</a>
 						</li>
 						<li>
 							<a href="contact.html" id="menu5">联系我们</a>
@@ -45,62 +45,77 @@
 				<div>
 					<div class="media">
 						<div>
-							<div>
+							<div style="color:yellow;font-size: large" >
 								<h3>基因表达</h3>
-								<form action="tools/searchgexp" method="post" >
-                                    进行少量查询（可输入几个样本或基因，之间用英文逗号隔开）<br>
-                                    请输入查询样本：<input type="text" name="run" size="55" required><br>
-                                    请输入查询基因：<input type="text" name="geneid" size="55" required><br>
-                                    <input type="submit" >
+                                <form method="post" style="border-width:4px;border-color:blue">
+                                    进行IGCG数据库的基因查询，请输入基因Ensemble：<br>
+                                    <input id="input" type="text" placeholder="请输入" size="15" />
+                                    <button><a id="but" href="https://dcc.icgc.org/genes/">查询</a></button>
+                                    <script>
+                                    var input=document.getElementById("input");
+                                    var but=document.getElementById("but");
+                                    but.onclick=function(){
+                                    console.log(this.href);
+                                    this.href+=input.value;
+                                    }</script>
                                 </form>
-                                <button onclick="window.location.href='/down_runlist'">下载样本号</button>
+                                <br>
+								<form action="tools/searchgexp" method="post" style="border-width:4px;border-color:blue">
+                                    进行少量查询（可输入几个基因Ensambel，之间用英文逗号隔开）<br>
+                                    请输入查询基因：<input type="text" name="geneid" size="50" required>
+                                    <input type="submit" value="查询">
+                                </form>
+                                <br>
                                 <button onclick="window.location.href='/down_genelist'">下载基因号</button>
-                                <form enctype="multipart/form-data" action="tools/searchgexp2" method="post" >
-                                    进行大量查询（可输入大量样本或基因，文件格式为txt，单个样本或基因占一行）<br>
-                                    请上传查询样本：<input type="file" name="runfile" id="avatar_file" required><br>
-                                    请上传查询基因：<input type="file" name="genefile" id="avatar_file" required><br>
-                                    <input type="submit" >
+                                <form enctype="multipart/form-data" action="tools/searchgexp2" method="post" style="border: 3px">
+                                    进行大量查询（可输入基因Ensembl，文件格式为txt，单个基因占一行）<br>
+                                    请上传查询基因：<input type="file" name="genefile" id="avatar_file" required>
+                                    <input type="submit" value="查询">
                                 </form>
 							</div>
 							<div>
 								<h3>查询示例</h3>
-								<ul>
-									<li>
-										<a href="#" class="figure"><img src="../../static/images/video1.jpg" alt=""></a>
-										<span><a href="#">This is just a place holder</a></span>
-									</li>
-									<li>
-										<a href="#" class="figure"><img src="../../static/images/video2.jpg" alt=""></a>
-										<span><a href="#">This is just a place holder</a></span>
-									</li>
-									<li>
-										<a href="#" class="figure"><img src="../../static/images/video3.jpg" alt=""></a>
-										<span><a href="#">This is just a place holder</a></span>
-									</li>
-									<li>
-										<a href="#" class="figure"><img src="../../static/images/video4.jpg" alt=""></a>
-										<span><a href="#">This is just a place holder</a></span>
-									</li>
-								</ul>
-							</div>
+                                <table border="5" bgcolor="black" cellpadding="3" cellspacing="3" class="result" align="center" style="color:yellow">
+                                    <tr>
+                                        <td>Ensembl</td>
+                                        <td>baseMean</td>
+                                        <td>log2FoldChange</td>
+                                        <td>pvalue</td>
+                                        <td>padj</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ENSG00000115648</td>
+                                        <td>62.6423999</td>
+                                        <td>-12.72051228</td>
+                                        <td>1.91E-142</td>
+                                        <td>6.09E-138</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ENSG00000116132</td>
+                                        <td>172.45709</td>
+                                        <td>-14.61304529</td>
+                                        <td>4.20E-134</td>
+                                        <td>6.69E-130</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ENSG00000172201</td>
+                                        <td>54.99650522</td>
+                                        <td>-12.39744895</td>
+                                        <td>9.26E-133</td>
+                                        <td>9.85E-129</td>
+                                    </tr>
+                                    <tr>
+                                        <td>...</td>
+                                        <td>...</td>
+                                        <td>...</td>
+                                        <td>...</td>
+                                        <td>...</td>
+                                    </tr>
+                                </table>
+                            </div>
 						</div>
-						<div class="article">
-							<h3>this is just a place holder</h3>
-							<ul>
-								<li>
-									<a href="#" class="figure"><img src="../../static/images/media2.jpg" alt=""></a>
-									<p>
-										This website template has been collect from <a href="http://www.cssmoban.com/" title="模板之家">模板之家</a> for you, for free. You can replace all this text with your own text. You can remove any link to our website from this website template, you're free to use this website template.
-									</p>
-								</li>
-								<li>
-									<a href="#" class="figure"><img src="../../static/images/media3.jpg" alt=""></a>
-									<p>
-										If you're having problems editing this website template, then don't hesitate to ask for help on the Forum.
-									</p>
-								</li>
-							</ul>
-						</div>
+
+
 					</div>
 				</div>
 			</div>

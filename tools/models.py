@@ -127,8 +127,21 @@ class Gexpress(models.Model):
     ensg00000000460 = models.IntegerField(db_column='ENSG00000000460', blank=True, null=True)  # Field name made lowercase.
     ensg00000000938 = models.IntegerField(db_column='ENSG00000000938', blank=True, null=True)  # Field name made lowercase.
 
-
     class Meta:
         managed = False
         db_table = 'gexpress'
 
+
+class Results(models.Model):
+    gene = models.CharField(db_column='Gene', primary_key=True, max_length=20)  # Field name made lowercase.
+    basemean = models.FloatField(db_column='baseMean', blank=True, null=True)  # Field name made lowercase.
+    log2foldchange = models.FloatField(db_column='log2FoldChange', blank=True, null=True)  # Field name made lowercase.
+    lfcse = models.FloatField(db_column='lfcSE', blank=True, null=True)  # Field name made lowercase.
+    pvalue = models.FloatField(blank=True, null=True)
+    padj = models.FloatField(blank=True, null=True)
+    symbol = models.TextField(blank=True, null=True)
+    entrez = models.IntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'results'
