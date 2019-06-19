@@ -103,3 +103,41 @@ def searchgexp2(request):
         response = HttpResponse(searchresult)
         response['Content-Disposition'] = 'attachment; filename=result.csv'
         return response
+
+
+def analysis(request):
+    UP_DIR=os.path.join(BASE_DIR,"upload")
+    if request.method == "POST":    # 请求方法为POST时，进行处理
+        project=request.POST.get('project')
+        email = request.POST.get('email')
+        fname=project+'_'+email+'.txt'
+        userrequest = open(os.path.join(UP_DIR, fname),'w')
+        userrequest.close()
+    return HttpResponse("提交成功!")
+
+
+def compliment1(request):
+    UP_DIR=os.path.join(BASE_DIR,"upload")
+    if request.method == "POST":    # 请求方法为POST时，进行处理
+        project=request.POST.get('acs')
+        email = request.POST.get('email')
+        fname=project+'_'+email+'.txt'
+        userrequest = open(os.path.join(UP_DIR, fname),'w')
+        userrequest.close()
+    return HttpResponse("提交成功!")
+
+
+def compliment2(request):
+    UP_DIR=os.path.join(BASE_DIR,"upload")
+    if request.method == "POST":    # 请求方法为POST时，进行处理
+        myFile2 = request.FILES.get("fastq", None)  # 获取上传的文件，如果没有文件，则默认为None
+        destination = open(os.path.join(UP_DIR, myFile2.name), 'wb+')  # 打开特定的文件进行二进制的写操作
+        for chunk in myFile2.chunks():  # 分块写入文件
+            destination.write(chunk)
+        destination.close()
+        fastq = myFile2.name
+        email = request.POST.get('email')
+        fname = fastq + '_' + email + '.txt'
+        userrequest = open(os.path.join(UP_DIR, fname), 'w')
+        userrequest.close()
+    return HttpResponse("提交成功!")

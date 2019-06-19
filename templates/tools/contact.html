@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Blog - Game Website Template</title>
+	<title>宫颈癌RNA-Seq数据库</title>
 	<link rel="stylesheet" href="../../static/css/style.css" type="text/css">
     <style>
         .logo{
@@ -55,10 +55,10 @@
 										<p>
                                             如果您对某些样本感兴趣，可以提交样本实验的project，我们可以帮您找到差异基因，并将结果发送到您的邮箱，您可以下载样本信息得知样本实验的project<button onclick="window.location.href='/down_runlist'">下载样本信息</button>
 										</p>
-                                        <form action="tools/searchgexp" method="post" style="border-width:4px;border-color:blue">
+                                        <form action="tools/analysis" method="post" style="border-width:4px;border-color:blue">
                                             请输入project：<input type="text" name="project" size="20" required><br>
                                             请输入您的邮箱：<input type="email" name="email" size="20" required><br>
-                                            <input type="submit" value="提交">
+                                            <input type="submit" value="提交" >
                                         </form>
 									</div>
 								</li>
@@ -71,9 +71,13 @@
 										<p>
                                             如果您有新的样本给我们补充，如sra的accession或者fastq文件，可以发送给我们！
 										</p>
-                                        <form action="tools/searchgexp" method="post" style="border-width:4px;border-color:blue;align:center">
-                                            <input type="radio" name="sample" value="accession" >请输入accession：<input type="text" name="project" size="20" required><br>
-                                            <input type="radio" name="sample" value="fastq">或提交fastq文件<input type="file" name="fastq" id="avatar_file" required><br>
+                                        <form action="tools/compliment1" method="post" style="border-width:4px;border-color:blue;align:center">
+                                            请输入accession：<input type="text" name="acs" size="20" required><br>
+                                            请输入您的邮箱：<input type="email" name="email" size="20" required>
+                                            <input type="submit" value="提交"><br>
+                                        </form>
+                                        <form action="tools/compliment2" method="post" style="border-width:4px;border-color:blue;align:center">
+                                            或提交fastq文件：<input type="file" name="fastq" id="avatar_file" required><br>
                                             请输入您的邮箱：<input type="email" name="email" size="20" required>
                                             <input type="submit" value="提交">
                                         </form>

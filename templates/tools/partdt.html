@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="UTF-8">
-	<title>Games - Game Website Template</title>
+	<title>宫颈癌RNA-Seq数据库</title>
 	<link rel="stylesheet" href="../../static/css/style.css" type="text/css">
     <style>
         .logo{
@@ -54,32 +54,160 @@
                                     <p style="color: yellow;font-size:large">对基因进行计数后，对计数x进行3种转换：转换为log2（x+1），方差稳定转换VST，和正规化的对数转换rlog。画出三种转换效果的散点图（注：选取41组数据绘图。）我们可以看到低计数基因(左下角)在普通对数尺度上似乎是过度变化的，而VST和rlog压缩了低计数基因的差异。</p>
 								</li>
 							</ul>
+                            <h3 align="center">样本泊松距离</h3>
+							<ul>
+								<li>
+                                    <a href="#" class="figure"><img src="../../static/images/pheat.png" alt="" width="450"></a>
+                                    <p style="color: yellow;font-size:large">这是样本之间的泊松距离热图。从两种距离热图中都可以看出对照组和实验组组内的相关性明显高于组间的相关性，说明同类样本间相关性较好。但使用VST数据做的检验差异较原始计数数据明显。</p>
+								</li>
+							</ul>
+                            <h3 align="center">多维标度法</h3>
+							<ul>
+								<li>
+                                    <a href="#" class="figure"><img src="../../static/images/MDSV.png" alt="" width="450"></a>
+                                    <p style="color: yellow;font-size:large">这是用VST数据画的MDS图。从两图中可以明显看出对照组和实验组有明显差距，但各自的组内又有明显分块聚合的趋势。而多维标度法中很好的降低了组内的差异</p>
+								</li>
+							</ul>
+                            <h3 align="center">MA图</h3>
+							<ul>
+								<li>
+                                    <a href="#" class="figure"><img src="../../static/images/MA2.png" alt="" width="450"></a>
+                                    <p style="color: yellow;font-size:large">这是MA图，红色的表示差异基因，可以看出有相当多的基因显示出了差异</p>
+								</li>
+							</ul>
+                            <h3 align="center">差异基因中已知与宫颈癌有关的基因</h3>
+							<ul>
+								<table border="5" bgcolor="black" cellpadding="3" cellspacing="3" class="result" align="center" style="color:yellow">
+                                    <tr>
+                                        <td>CCAT1</td>
+                                        <td>MACC1</td>
+                                        <td>GREB1</td>
+                                        <td>HIC1</td>
+                                        <td>CTAG2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SDCCAG8</td>
+                                        <td>BRCA1</td>
+                                        <td>DLEC1</td>
+                                        <td>CT83</td>
+                                        <td>CASC5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>COLCA1</td>
+                                        <td>CTAG1B</td>
+                                        <td>CTAG1A</td>
+                                        <td>COLCA2</td>
+                                        <td>MCC</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CASC9</td>
+                                        <td>DLC1</td>
+                                        <td>BRCA2</td>
+                                        <td>PCAT6</td>
+                                        <td>CASC1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CASC8</td>
+                                        <td>CT49</td>
+                                        <td>CASC10</td>
+                                        <td>SDCCAG3</td>
+                                        <td>BCAR3</td>
+                                    </tr>
+                                    <tr>
+                                        <td>BLCAP</td>
+                                        <td>SDCCAG3P2</td>
+                                        <td>GREB1L</td>
+                                        <td>CT45A4</td>
+                                        <td>LDOC1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CT62</td>
+                                        <td>CT45A1</td>
+                                        <td>CT45A3</td>
+                                        <td>PCA3</td>
+                                        <td>CT45A6</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CT45A5</td>
+                                        <td>CT45A2</td>
+                                        <td>ORAOV1</td>
+                                        <td>NTPCR</td>
+                                        <td>CASC7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>VOPP1</td>
+                                        <td>PCAT1</td>
+                                        <td>CT64</td>
+                                        <td>SNCG</td>
+                                        <td>CASC15</td>
+                                    </tr>
+                                    <tr>
+                                        <td>CASC4P1</td>
+                                        <td>CASC14</td>
+                                    </tr>
+                                </table>
+							</ul>
+                            <h3 align="center">GO富集分析（生物学过程）</h3>
+							<ul>
+								<li>
+                                    <a href="#" class="figure"><img src="../../static/images/GO_BP.png" alt="" width="450"></a>
+                                    <p style="color: yellow;font-size:large"></p>
+								</li>
+							</ul>
+                            <h3 align="center">KEGG代谢通路分析</h3>
+							<ul>
+								<li>
+                                    <a href="#" class="figure"><img src="../../static/images/KEGG.png" alt="" width="450"></a>
+                                    <p style="color: yellow;font-size:large"></p>
+								</li>
+							</ul>
 						</div>
                         <div class="content">
 							<h3 align="center">样本欧式距离</h3>
 							<ul>
 								<li>
                                     <a href="#" class="figure"><img src="../../static/images/dheat.png" alt="" width="450"></a>
-                                    <p style="color: yellow;font-size:large">从两图中都可以看出对照组和实验组组内的相关性明显高于组间的相关性，说明同类样本间相关性较好。但使用VST数据做的检验差异较原始计数数据明显。</p>
+                                    <p style="color: yellow;font-size:large">这是样本之间的欧式距离热图</p>
 								</li>
 							</ul>
-						</div>
-                        <div class="content">
-							<h3 align="center">样本泊松距离</h3>
+                            <h3 align="center">主成分分析</h3>
 							<ul>
 								<li>
-									<a href="#" class="figure"><img src="../../static/images/KEGG.png" alt="" width="450" height="450"></a> <span><a href="#">This is just a place holder</a></span>
+                                    <a href="#" class="figure"><img src="../../static/images/PCA.png" alt="" width="450"></a>
+                                    <p style="color: yellow;font-size:large">这是用MDS数据画的PCA图</p>
 								</li>
 							</ul>
-						</div>
-                        <div class="content">
-							<h3 align="center">主成分分析</h3>
+                            <h3 align="center">差异最显著的基因</h3>
 							<ul>
 								<li>
-									<a href="#" class="figure"><img src="../../static/images/KEGG.png" alt="" width="450" height="450"></a> <span><a href="#">This is just a place holder</a></span>
+                                    <a href="#" class="figure"><img src="../../static/images/topG.png" alt="" width="450"></a>
+                                    <p style="color: yellow;font-size:large">这是差异最显著的基因在对照组和实验组中的表达情况</p>
+								</li>
+							</ul>
+                            <h3 align="center">基因表达差异热图</h3>
+							<ul>
+								<li>
+                                    <a href="#" class="figure"><img src="../../static/images/gpheat.png" alt="" width="450"></a>
+                                    <p style="color: yellow;font-size:large">在基因表达水平上，由热图可以看出对照组与实验组样本间表达水平的差异。这里仅仅给出表达差异最明显的前30个基因绘图，整体水平来看，这些基因在宫颈癌组织中普遍低表达</p>
+								</li>
+							</ul>
+                            <h3 align="center">GO富集分析（细胞组分）</h3>
+							<ul>
+								<li>
+                                    <a href="#" class="figure"><img src="../../static/images/GO_CC.png" alt="" width="450"></a>
+                                    <p style="color: yellow;font-size:large"></p>
+								</li>
+							</ul>
+                            <h3 align="center">GO富集分析（分子功能）</h3>
+							<ul>
+								<li>
+                                    <a href="#" class="figure"><img src="../../static/images/GO_MF.png" alt="" width="450"></a>
+                                    <p style="color: yellow;font-size:large"></p>
 								</li>
 							</ul>
 						</div>
+
+
 					</div>
 				</div>
 			</div>

@@ -36,6 +36,9 @@ urlpatterns = [
     path('tools/searchgexp', views.searchgexp),
     url(r'^index/static/(?P<path>.*)$', serve, {'document_root': os.path.join(BASE_DIR, "static")}),
     path('tools/searchgexp2', views.searchgexp2),
+    path('tools/analysis', views.analysis),
+    path('tools/compliment1', views.compliment1),
+    path('tools/compliment2', views.compliment2),
     url(r'^down_runlist', views.down_runlist),
     url(r'^down_genelist', views.down_genelist),
 ]

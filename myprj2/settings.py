@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'tsn=zxsv#29voq0!r$o19-bg=g7i(8!(_e$udp2*0c%nm)jy8m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'myprj2.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'rsdb',
-        'USER': 'root',
+        'NAME': 'dzw893246344$rsdb',
+        'USER': 'dzw893246344',
         'PASSWORD': 'dzw1372758',
-        'HOST': 'localhost',
+        'HOST': 'dzw893246344.mysql.pythonanywhere-services.com',
         'PORT': '3306',
     }
 }
